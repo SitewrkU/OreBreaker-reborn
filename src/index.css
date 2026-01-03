@@ -3,22 +3,20 @@
   line-height: 1.5;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: #151515;
 }
 
 body {
   margin: 0;
   display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
+  max-height: 100vh;
 }
 
 img{
   image-rendering: pixelated;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+svg{
+  vertical-align: middle;
 }

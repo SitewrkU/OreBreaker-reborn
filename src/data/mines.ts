@@ -34,9 +34,15 @@ export const mines: Record<string, Mine> = {
         powerToDestr: 1,
         drop: [
           {
+            ...items.coal,
+            chance: [
+              { minCount: 4, maxCount:12, dropChance: 100}
+            ]
+          },
+          {
             ...items.stonePart,
             chance: [
-              { minCount: 2, maxCount:6, dropChance: 100}
+              { minCount: 2, maxCount:3, dropChance: 30}
             ]
           }
         ]

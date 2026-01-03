@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { Header } from './shared/ui/Header/Header'
 import { MiningArea } from './features/mining/components/MiningArea'
 import { useMiningStore } from './features/mining/store/miningStore'
+import { ModalRoot } from './app/ModalRoot'
 import './App.css'
 
 function App() {
@@ -14,9 +15,9 @@ function App() {
   return (
     <>
       <Header/>
-      <h1>hi twin (★‿★)</h1>
       <MiningArea/>
-      <p>Someday, this project will become something big.</p>
+      
+      <ModalRoot/>
     </>
   )
 }

@@ -6,6 +6,9 @@ export const items = {
   stonePart: {
     id: 'stone_part', name: 'Piece of stone', src: getResourcePath('stone-part.png')
   } satisfies Item,
+  coal: {
+    id: 'coal', name: 'Coal', src: getResourcePath('coal.png')
+  } satisfies Item,
   
   stonePickaxe: {
     id: 'stone_pickaxe',

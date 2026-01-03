@@ -6,3 +6,5 @@ These choices make the project significantly more convenient for scaling and fur
 **This version is currently in Alpha testing, so the current code is intended for GitHub only.**
 ## Alpha 1.0:
 Test commit: basic ore generation and player interaction implemented.
+## Alpha 1.1
+Added modals and Inventory
