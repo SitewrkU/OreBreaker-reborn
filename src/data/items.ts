@@ -18,7 +18,8 @@ export const items = {
       desc: 'A common stone pickaxe used by novice miners.',
       damage: 10,
       power: 2,
-      maxDurability: 100
+      maxDurability: 100,
+      durability: 100,
     }
   } satisfies PickaxeTemplate,
 
@@ -30,7 +31,8 @@ export const items = {
       desc: 'An instrument exalted beyond all. It demands no crafting and knows no repair. It is already yours — wield it with wisdom, warrior.',
       damage: 1,
       power: 2,
-      maxDurability: Infinity
+      maxDurability: Infinity,
+      durability: Infinity,
     }
   } satisfies PickaxeTemplate
 }

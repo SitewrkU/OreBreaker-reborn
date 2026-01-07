@@ -9,7 +9,7 @@ export const mines: Record<string, Mine> = {
     ores: [
       {
         id: 'stone_ore',
-        name: 'Stone ore',
+        name: 'Stone',
         rarity: 'Default',
         src: getOrePath('stone-ore.png'),
         chance: 50,

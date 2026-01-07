@@ -8,3 +8,6 @@ These choices make the project significantly more convenient for scaling and fur
 Test commit: basic ore generation and player interaction implemented.
 ## Alpha 1.1
 Added modals and Inventory
+## Alpha 1.2
+Added pickaxes logic and Howler.js sound support
+A little redesign

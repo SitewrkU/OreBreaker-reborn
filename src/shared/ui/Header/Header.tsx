@@ -1,4 +1,5 @@
 import { useUIStore } from "@/shared/store/uiStore"
+import { useSound } from "@/shared/lib/audio/useSound"
 import { 
   Stone, 
   Pickaxe,
@@ -9,12 +10,14 @@ import styles from './Header.module.css'
 
 export const Header = () => {
   const openModal = useUIStore((s) => s.openModal)
+
+  const playHover = useSound('hover')
   return (
     <div className={styles.header}>
-      <button onClick={() => openModal('inventory')}><Stone/></button>
-      <button onClick={() => openModal('inventory')}><Pickaxe/></button>
-      <button><Scroll/></button>
-      <button><Settings/></button>
+      <button onMouseEnter={playHover} onClick={() => openModal('inventory')}><Stone/></button>
+      <button onMouseEnter={playHover} onClick={() => openModal('inventory')}><Pickaxe/></button>
+      <button onMouseEnter={playHover}><Scroll/></button>
+      <button onMouseEnter={playHover}><Settings/></button>
     </div>
   )
 }
