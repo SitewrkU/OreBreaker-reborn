@@ -7,7 +7,6 @@ import { getSoundPath } from './shared/config/assets'
 import { ModalRoot } from './app/ModalRoot'
 import { Header } from './shared/ui/Header/Header'
 import { MiningArea } from './features/mining/components/MiningArea'
-import { PickaxeInventory } from './features/pickaxe/components/PickaxeInventory'
 import './App.css'
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
     <>
       <Header/>
       <MiningArea/>
-      <PickaxeInventory/>
       
       <ModalRoot/>
     </>

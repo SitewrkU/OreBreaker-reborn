@@ -1,0 +1,80 @@
+.inventoryModal{
+  width: 700px;
+  height: 400px;
+}
+
+.embla {
+  overflow: hidden;
+}
+
+.pickaxesContainer {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  display: flex;
+  touch-action: pan-y;
+}
+
+.pickaxeItem {
+  padding: 10px;
+  flex: 0 0 40%;
+  min-width: 0;
+  padding-left: 1rem;
+  box-sizing: border-box;
+
+  .name{
+    font-size: 1.2em;
+    margin: 4px 0 6px;
+  }
+
+  .desc{
+    color: #c1c1c1
+  }
+
+  .mainStats{
+    display: flex;
+    flex-direction: row-reverse;
+
+    & img{
+      width: 92px;
+      height: 92px;
+    }
+
+    .stats{
+      margin-right: auto;
+
+      & p{
+        margin: 5px;
+        > svg:first-of-type {
+          margin-right: 5px;
+        }
+
+        & svg{
+          vertical-align: -7px;
+          width: 18px;
+        }
+      }
+
+      .hp > svg:first-of-type{
+        color: hsl(332, 100%, 79%, 0.6);
+      }
+      .dmg > svg:first-of-type{
+        color: hsl(356, 74%, 55%, 0.6);
+      }
+      .pwr > svg:first-of-type{
+        color: hsl(214, 100%, 79%, 0.6);
+      }
+      
+      .hp{
+        .hpDefPar{
+          color: hsl(0, 0%, 100%, 0.4);
+          font-size: 0.7em;
+          & svg{
+            width: 12px;
+            vertical-align: -10px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import { create } from "zustand";
 
-type ModalType = 
+export type ModalType = 
   'inventory' 
+  | 'pickaxes'
   | null
 
 type UIState = {

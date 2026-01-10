@@ -1,8 +1,10 @@
 import { useUIStore } from "@/shared/store/uiStore"
 import { Inventory } from "@/features/inventory/components/Inventory"
+import { PickaxeInventory } from "@/features/pickaxe/components/PickaxeInventory"
 
 const MODALS = {
   inventory: Inventory,
+  pickaxes: PickaxeInventory
 } as const
 
 export const ModalRoot = () => {

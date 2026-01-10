@@ -52,6 +52,7 @@ export const MiningArea = () => {
         />
         <p>{health.toFixed(1)} / {maxHealth}</p>
       </div>
+      <p>Міцність поточ. кірки: {currentPickaxe?.pickaxe.durability ?? 0}</p>
     </div>
   )
 }

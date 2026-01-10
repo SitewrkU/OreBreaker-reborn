@@ -5,11 +5,11 @@ import { getOrePath } from "@/shared/config/assets";
 export const mines: Record<string, Mine> = {
   standart: {
     id: 'standart',
-    name: 'Standart Mine',
+    name: 'Стандартна шахта',
     ores: [
       {
         id: 'stone_ore',
-        name: 'Stone',
+        name: 'Груда каменю',
         rarity: 'Default',
         src: getOrePath('stone-ore.png'),
         chance: 50,
@@ -21,12 +21,18 @@ export const mines: Record<string, Mine> = {
             chance: [
               { minCount: 1, maxCount:3, dropChance: 100}
             ]
+          },
+          {
+            ...items.bero,
+            chance: [
+              { minCount: 1, maxCount:1, dropChance: 0.1}
+            ]
           }
         ]
       },
       {
         id: 'coal_ore',
-        name: 'Coal ore',
+        name: 'Вугільна порода',
         rarity: 'Default',
         src: getOrePath('coal-ore.png'),
         chance: 30,
@@ -36,7 +42,7 @@ export const mines: Record<string, Mine> = {
           {
             ...items.coal,
             chance: [
-              { minCount: 4, maxCount:12, dropChance: 100}
+              { minCount: 4, maxCount:1002, dropChance: 100}
             ]
           },
           {
@@ -49,7 +55,7 @@ export const mines: Record<string, Mine> = {
       },
       {
         id: 'iron-ore',
-        name: 'Iron ore',
+        name: 'Залізна руда',
         rarity: 'Rare',
         src: getOrePath('iron-ore.png'),
         chance: 20,
