@@ -25,7 +25,7 @@ export const mines: Record<string, Mine> = {
           {
             ...items.bero,
             chance: [
-              { minCount: 1, maxCount:1, dropChance: 0.1}
+              { minCount: 1, maxCount:1, dropChance: 4}
             ]
           }
         ]

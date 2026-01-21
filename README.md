@@ -15,3 +15,6 @@ A little redesign
 New modal for pickaxe inventory.
 Better styles. New sound and content.
 Now main language – Ukrainian.
+## Alpha 1.2.2
+Added drop list.
+Added animations to: drop list, ore.

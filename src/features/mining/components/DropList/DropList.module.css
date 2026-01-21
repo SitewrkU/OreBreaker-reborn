@@ -1,0 +1,59 @@
+.DropListContainer{
+  width: 240px;
+  border-radius: 10px;
+
+  .header{
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 1.4em;
+  }
+}
+
+.dropList{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+
+  .dropItem{
+    position: relative;
+    background-color: hsl(0, 0%, 100%, 0.05);
+    border-radius: 10px;
+    padding: 5px 10px;
+    text-align: start;
+    display: flex;
+    align-items: center;
+
+    & img{
+      margin-left: auto;
+      width: 32px;
+      height: 32px;
+    }
+
+    .dropChance{
+      position: absolute;
+      right: -10px;
+      top: -5px;
+      font-weight: 700;
+      transform: rotate(20deg);
+    }
+
+    > .def{ color: hsla(120, 82%, 22%, 0.3); }
+    > .rare{ color: rgba(59, 116, 161, 0.4); }
+    > .epic{ color: rgba(207, 37, 54, 0.4); }
+    > .legendary{ color: rgba(238, 188, 8, 0.5); font-size: 1.1em; }
+    > .mythic{ 
+      color: rgba(190, 0, 211, 0.5); 
+      font-size: 1.2em; 
+      animation: mythic-glow 2s ease-in-out infinite;
+    }
+  }
+}
+
+@keyframes mythic-glow {
+  0%, 100% { 
+    text-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+  }
+  50% { 
+    text-shadow: 0 0 40px rgba(255, 0, 255, 0.8);
+  }
+}

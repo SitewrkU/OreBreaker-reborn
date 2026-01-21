@@ -20,7 +20,7 @@ export const items = {
     src: getToolPath('stone-pickaxe.png'),
     pickaxe: {
       desc: 'Проста кам\'яна кірка, використовується початковими шахтарями',
-      damage: 100,
+      damage: 50,
       power: 2,
       maxDurability: 100,
       durability: 100,

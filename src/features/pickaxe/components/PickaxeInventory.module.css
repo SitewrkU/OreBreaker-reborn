@@ -44,7 +44,7 @@
       margin-right: auto;
 
       & p{
-        margin: 5px;
+        margin: 2px;
         > svg:first-of-type {
           margin-right: 5px;
         }

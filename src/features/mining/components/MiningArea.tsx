@@ -1,16 +1,25 @@
+import { useState } from "react";
 import { useMiningStore } from "../store/miningStore";
 import { useInventoryStore } from "@/features/inventory/store/inventoryStore";
 import { usePickaxeStore } from "@/features/pickaxe/store/pickaxeStore";
 import { useShallow } from "zustand/shallow";
 import { generateOreDrop } from "@/shared/lib/drop";
 import { useCurrentPickaxe } from "@/features/pickaxe/hooks/useCurrentPickaxe";
+import styles from './MiningArea.module.css'
+import { motion } from "framer-motion";
+
+import { DropList } from "./DropList/DropList";
 
 export const MiningArea = () => {
-  const { currentOre, health, maxHealth, damageOre, generateNewOre } = useMiningStore(
+  const [rotateLeft, setRotateLeft] = useState(true);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const { currentOre, health, maxHealth, setCurrentDrop, damageOre, generateNewOre } = useMiningStore(
     useShallow(s => ({
       currentOre: s.currentOre,
       health: s.health,
       maxHealth: s.maxHealth,
+      setCurrentDrop: s.setCurrentDrop,
       damageOre: s.damageOre,
       generateNewOre: s.generateNewOre
     }))
@@ -22,6 +31,8 @@ export const MiningArea = () => {
 
   const handleClick = () => {
     if(!currentPickaxe) return;
+    handleAnimate();
+
     const damage = currentPickaxe.pickaxe.damage;
     const { destroyed } = damageOre(damage)
 
@@ -30,10 +41,22 @@ export const MiningArea = () => {
       damagePickaxe(1)
       //Old ore drops
       const drops = generateOreDrop(currentOre)
-      drops.forEach(drop => addItem(drop, drop.amount))
+      drops.forEach(drop => addItem(drop.item, drop.item.amount)) //add to inventory
+      setCurrentDrop(drops)
       //New ore
       generateNewOre()
     }
+  }
+
+  const handleAnimate = () => {
+    if (isAnimating) return;
+
+    setIsAnimating(true);
+    setRotateLeft(!rotateLeft)
+
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 100);
   }
 
 
@@ -41,18 +64,34 @@ export const MiningArea = () => {
     return <div>Loading...</div>;
   }
   return (
-    <div>
-      <h2>{currentOre.name}</h2>
-      <img src={currentOre.src} alt={currentOre.name} onClick={handleClick} width={128}/>
-      <div style={{ marginTop: '10px' }}>
-        <progress 
-          max={maxHealth} 
-          value={health}
-          style={{ width: '200px' }}
+    <div className={styles.mineArea}>
+      <div>
+        <h2>{currentOre.name}</h2>
+        <motion.img 
+          src={currentOre.src} 
+          alt={currentOre.name} 
+          animate={{ 
+            rotate: isAnimating ? (rotateLeft ? -15 : 15) : 0 
+          }}
+          transition={{ 
+            type: "spring", 
+            stiffness: 400, 
+            damping: 17
+          }}
+          onClick={handleClick} 
+          width={128}
         />
-        <p>{health.toFixed(1)} / {maxHealth}</p>
+        <div style={{ marginTop: '10px' }}>
+          <progress 
+            max={maxHealth} 
+            value={health}
+            style={{ width: '200px' }}
+          />
+          <p>{health.toFixed(1)} / {maxHealth}</p>
+        </div>
+        <p>Міцність поточ. кірки: {currentPickaxe?.pickaxe.durability ?? 0}</p>
       </div>
-      <p>Міцність поточ. кірки: {currentPickaxe?.pickaxe.durability ?? 0}</p>
+      <DropList/>
     </div>
   )
 }
