@@ -39,7 +39,7 @@ export const PickaxeInventory = () => {
       open={modal === 'pickaxes'}
       onClose={closeModal}
       title="Кірки"
-      className={styles.inventoryModal}
+      className={styles.Modal}
     >
       {pickaxes.length === 0 ? (
         <p>Немає кірок!</p>

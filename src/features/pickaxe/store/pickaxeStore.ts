@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 import { nanoid } from "nanoid";
 import type { Pickaxe, PickaxeTemplate } from "@/entities/pickaxe/type";
+import { questTrackers } from "@/features/quests/lib/questProgress";
 
 interface PickaxeState {
   currentPickaxeId: string | null;
@@ -57,6 +58,8 @@ export const usePickaxeStore = create<PickaxeState>()(
       if(pickaxe.pickaxe.durability <= 0){
         state.pickaxes = state.pickaxes.filter(p => p.instanceId !== id)
         state.currentPickaxeId = null;
+
+        questTrackers.breakPickaxe()
       }
     }) 
   }))

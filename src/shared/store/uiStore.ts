@@ -3,6 +3,7 @@ import { create } from "zustand";
 export type ModalType = 
   'inventory' 
   | 'pickaxes'
+  | 'quests'
   | null
 
 type UIState = {

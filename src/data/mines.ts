@@ -54,7 +54,7 @@ export const mines: Record<string, Mine> = {
         ]
       },
       {
-        id: 'iron-ore',
+        id: 'iron_ore',
         name: 'Залізна руда',
         rarity: 'Rare',
         src: getOrePath('iron-ore.png'),

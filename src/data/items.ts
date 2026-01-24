@@ -4,7 +4,7 @@ import { getResourcePath, getToolPath } from "@/shared/config/assets";
 
 export const items = {
   stonePart: {
-    id: 'stone_part', name: 'Кусочок камня', src: getResourcePath('stone-part.png')
+    id: 'stonePart', name: 'Кусочок камня', src: getResourcePath('stone-part.png')
   } satisfies Item,
   coal: {
     id: 'coal', name: 'Вугілля', src: getResourcePath('coal.png')
@@ -13,9 +13,12 @@ export const items = {
   bero: {
     id: 'bero', name: 'Беро', src: getToolPath('bero.png')
   } satisfies Item,
+  sparkles: {
+    id: 'sparkles', name: 'Іскорки', src: getResourcePath('sparkles.png')
+  } satisfies Item,
   
   stonePickaxe: {
-    id: 'stone_pickaxe',
+    id: 'stonePickaxe',
     name: 'Кам\'яна кірка',
     src: getToolPath('stone-pickaxe.png'),
     pickaxe: {
@@ -40,3 +43,5 @@ export const items = {
     }
   } satisfies PickaxeTemplate
 }
+
+export type ItemId = keyof typeof items; //Export for others types (and ts autocomplete)

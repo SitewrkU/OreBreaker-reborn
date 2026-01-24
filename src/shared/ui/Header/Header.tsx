@@ -27,7 +27,7 @@ export const Header = () => {
       <button onMouseEnter={playHover} onClick={() => handleOpen('inventory')}><Stone/></button>
       <button onMouseEnter={playHover} onClick={() => handleOpen('pickaxes')}><Pickaxe/></button>
       <button onMouseEnter={playHover}><Anvil/></button>
-      <button onMouseEnter={playHover}><Scroll/></button>
+      <button onMouseEnter={playHover} onClick={() => handleOpen('quests')}><Scroll/></button>
       <button onMouseEnter={playHover}><ShoppingBag/></button>
       <button onMouseEnter={playHover}><Settings/></button>
     </div>

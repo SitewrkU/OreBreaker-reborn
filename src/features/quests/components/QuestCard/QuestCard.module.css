@@ -1,0 +1,131 @@
+.quest{
+  padding: 5px;
+  border: 1px solid #ebba90;
+  border-radius: 3px;
+}
+
+.quest{
+  position: relative;
+  .hideQuest{
+    cursor: not-allowed;
+    color: hsl(0, 0%, 30%);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20px;
+
+    &.canHide{
+      color: hsl(0, 0%, 80%);
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+      &:hover{
+        color: #ae3c3c;
+        transform: rotate(15deg);
+      }
+    }
+  }
+
+  & h2{
+    margin-bottom: 5px;
+    color: #a1a1a1;
+    font-size: 20px;
+    & span{
+      color: #747474;
+      font-size: 0.9em;
+    }
+
+    &:hover{
+      color: #b39797;
+      & span{
+        color: #826a6a;
+      }
+    }
+  }
+
+  &.rewarded{
+    opacity: 0.7;
+    filter: grayscale(70%) sepia(30%) brightness(1.1);
+  }
+
+  .objective{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: hsla(0, 63%, 64%, 0.2);
+    margin-bottom: 10px;
+
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+    
+    .progress{
+      font-weight: 600;
+      color: #c99f9f;
+    }
+    .desc{
+      color: #c4c4c4;
+      font-size: 0.85em;
+    }
+
+    &.objInProgress{
+      background-color: hsla(41, 63%, 64%, 0.2);
+      .progress{
+        color: #cfc68b;
+      }
+    }
+
+    &.objCompleted{
+      background-color: hsla(110, 63%, 54%, 0.2);
+      .progress{
+        color: #8bcf8d;
+      }
+    }
+  }
+
+  .rewards{
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: hsla(46, 16%, 43%, 0.4);
+
+    .rewardsHead{
+      margin-bottom: 10px;
+      text-align: end;
+    }
+
+    .rewardsList{
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+  }
+}
+
+.quest{
+  & hr{
+    max-width: 20%;
+    margin: 0 auto;
+    border-color: #ebba90;
+  }
+}
+
+.quest {
+  .claimButton{
+    cursor: pointer;
+    display: block;
+    margin: 8px 0 0 auto;
+    padding: 6px;
+    border-radius: 5px;
+    border: none;
+    background-color: hsl(122, 43%, 42%, 0.8);
+    transition: all 0.2s ease-in-out;
+
+    &:hover{
+      background-color: hsl(122, 43%, 42%, 1);
+    }
+
+    &:disabled{
+      background-color: #747474;
+      color: black;
+    }
+  }
+}

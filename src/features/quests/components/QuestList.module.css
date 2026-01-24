@@ -1,0 +1,26 @@
+.Modal{
+  width: 400px;
+  height: 95vh;
+  left: 15px !important;
+  transform: translate(0%, -50%) !important;
+  background-color: rgb(29, 25, 25);
+}
+
+.questsCount{
+  text-align: end;
+  margin: 10px 15px 10px;
+
+  & svg{
+    width: 20px;
+    margin-right: 8px;
+  }
+}
+
+.questList{
+  max-height: 85%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  gap: 20px;
+}
