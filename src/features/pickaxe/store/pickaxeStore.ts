@@ -11,6 +11,7 @@ interface PickaxeState {
   addPickaxe: (template: PickaxeTemplate) => void; //template - just link on items
   removePickaxe: (instanceId: string) => void;
   setCurrentPickaxe: (instanceId: string) => void;
+  removeCurrentPickaxe: () => void;
   damagePickaxe: (amount: number) => void;
 }
 
@@ -41,6 +42,10 @@ export const usePickaxeStore = create<PickaxeState>()(
     setCurrentPickaxe: (instanceId) => set((state) => {
       const exist = state.pickaxes.some(p => p.instanceId === instanceId)
       state.currentPickaxeId = exist ? instanceId : null;
+    }),
+
+    removeCurrentPickaxe: () => set((state) => {
+      state.currentPickaxeId = null;
     }),
 
     damagePickaxe: (amount = 1) => set((state) => {

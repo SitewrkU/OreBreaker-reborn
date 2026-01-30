@@ -124,6 +124,7 @@
     }
 
     &:disabled{
+      cursor: auto;
       background-color: #747474;
       color: black;
     }
