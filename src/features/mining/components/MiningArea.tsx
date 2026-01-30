@@ -1,10 +1,12 @@
 import { useState } from "react";
+
 import { useMiningStore } from "../store/miningStore";
 import { useInventoryStore } from "@/features/inventory/store/inventoryStore";
 import { usePickaxeStore } from "@/features/pickaxe/store/pickaxeStore";
-import { useShallow } from "zustand/shallow";
-import { generateOreDrop } from "@/shared/lib/drop";
 import { useCurrentPickaxe } from "@/features/pickaxe/hooks/useCurrentPickaxe";
+import { useShallow } from "zustand/shallow";
+
+import { generateOreDrop } from "@/shared/lib/drop";
 import { questTrackers } from "@/features/quests/lib/questProgress";
 import type { ItemId } from "@/data/items";
 
@@ -12,6 +14,8 @@ import styles from './MiningArea.module.css'
 import { motion } from "framer-motion";
 
 import { DropList } from "./DropList/DropList";
+import { CurrentPickaxe } from "./CurrentPickaxe/CurrentPickaxe";
+
 
 export const MiningArea = () => {
   const [rotateLeft, setRotateLeft] = useState(true);
@@ -76,6 +80,7 @@ export const MiningArea = () => {
   }
   return (
     <div className={styles.mineArea}>
+      <CurrentPickaxe/>
       <div>
         <h2>{currentOre.name}</h2>
         <motion.img 
@@ -100,7 +105,6 @@ export const MiningArea = () => {
           />
           <p>{health.toFixed(1)} / {maxHealth}</p>
         </div>
-        <p>Міцність поточ. кірки: {currentPickaxe?.pickaxe.durability ?? 0}</p>
       </div>
       <DropList/>
     </div>

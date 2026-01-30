@@ -25,8 +25,8 @@ export const items = {
       desc: 'Проста кам\'яна кірка, використовується початковими шахтарями',
       damage: 50,
       power: 2,
-      maxDurability: 100,
-      durability: 100,
+      maxDurability: 150,
+      durability: 150,
     }
   } satisfies PickaxeTemplate,
 
