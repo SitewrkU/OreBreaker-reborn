@@ -81,7 +81,7 @@ export const MiningArea = () => {
   return (
     <div className={styles.mineArea}>
       <CurrentPickaxe/>
-      <div>
+      <div className={styles.oreArea}>
         <h2>{currentOre.name}</h2>
         <motion.img 
           src={currentOre.src} 

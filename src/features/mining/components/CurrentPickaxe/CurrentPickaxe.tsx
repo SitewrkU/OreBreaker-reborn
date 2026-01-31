@@ -18,7 +18,7 @@ export const CurrentPickaxe = () => {
   const currentPickaxe = useCurrentPickaxe();
   const removeCurrPickaxe = usePickaxeStore(state => state.removeCurrentPickaxe)
 
-  let percentNum;
+  let percentNum = 100;
   if(currentPickaxe){
     percentNum = getPercent(currentPickaxe.pickaxe.durability, currentPickaxe.pickaxe.maxDurability)
   }
@@ -49,7 +49,18 @@ export const CurrentPickaxe = () => {
               <Heart/>
               {currentPickaxe.pickaxe.durability === Infinity ? 
               <InfinityIcon className={styles.infIcon}/> : currentPickaxe.pickaxe.durability}
-              <span className={styles.hpPercent}>
+              <span 
+                className={clsx(
+                  styles.hpPercent,
+                  {
+                    [styles.hpHigh]: percentNum >= 50, // 100-50
+                    [styles.hpMid]: percentNum >= 25 && percentNum < 50, // 25-49
+                    [styles.hpMidLow]: percentNum >= 6 && percentNum < 25, //6-24
+                    [styles.hpLow]: percentNum >= 2 && percentNum < 6, // 2-5
+                    [styles.hpSupLow]: percentNum < 2, // 0-5
+                  }
+                )}
+              >
                 ({percentNum}%)
               </span>
             </p>

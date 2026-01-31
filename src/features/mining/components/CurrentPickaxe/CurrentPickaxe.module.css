@@ -62,8 +62,13 @@
     }
 
     .hp{
-      span{
+      .hpPercent{
         margin-left: 5px;
+        &.hpHigh{color: #81f589;}
+        &.hpMid{color: #ddff61;}
+        &.hpMidLow{color: #f8b358;}
+        &.hpLow{color: #f55730;}
+        &.hpSupLow{color: #831e05;}
       }
     }
 
