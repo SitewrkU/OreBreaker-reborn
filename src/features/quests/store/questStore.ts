@@ -54,7 +54,6 @@ export const useQuestStore = create<QuestState>()(
       )
       if(allCompleted && quest.status === 'active'){
         quest.status = 'completed'
-        get().checkUnlocks
       }
     }),
 
@@ -65,7 +64,7 @@ export const useQuestStore = create<QuestState>()(
         
         const allRequired = quest.requiresQuests.every(reqId => {
           const reqQuest = state.quests.find(q => q.id === reqId);
-          return reqQuest?.status === 'completed';
+          return reqQuest?.status === 'completed' && reqQuest?.isRewarded;
         });
         
         if (allRequired) {
