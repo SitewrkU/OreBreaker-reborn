@@ -1,4 +1,4 @@
-import { useUIStore } from "@/shared/store/uiStore"
+import { useUIStore } from "@/shared/store/ModalStore"
 import { Inventory } from "@/features/inventory/components/Inventory"
 import { PickaxeInventory } from "@/features/pickaxe/components/PickaxeInventory"
 import { QuestsList } from "@/features/quests/components/QuestsList"

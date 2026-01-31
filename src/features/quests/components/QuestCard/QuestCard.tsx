@@ -39,7 +39,7 @@ export const QuestCard = ({ quest }: { quest: QuestInstance }) => {
           styles.objective, 
           obj.currentCount > 0 && styles.objInProgress,
           obj.currentCount >= obj.requiredCount && styles.objCompleted
-        )}>
+        )} key={obj.id}>
           <p className={styles.progress}>{obj.currentCount}/{obj.requiredCount}</p>
           <p className={styles.desc}>{obj.desc}</p>
         </div>
@@ -51,7 +51,7 @@ export const QuestCard = ({ quest }: { quest: QuestInstance }) => {
         <p className={styles.rewardsHead}>Винагороди</p>
         <div className={styles.rewardsList}>
           {quest.rewards.map(reward => (
-            <RewardItem reward={reward}/>
+            <RewardItem key={reward.instanceId} reward={reward}/>
           ))}
         </div>
       </div>

@@ -1,10 +1,11 @@
 import { Modal } from "@/shared/ui/Modal/Modal";
-import { useUIStore } from "@/shared/store/uiStore";
+import { useUIStore } from "@/shared/store/ModalStore";
 import { usePickaxeStore } from "../store/pickaxeStore"
 import { useCurrentPickaxe } from "../hooks/useCurrentPickaxe";
 import { useSound } from "@/shared/lib/audio/useSound";
 import useEmblaCarousel from 'embla-carousel-react'
 import styles from './PickaxeInventory.module.css'
+import clsx from "clsx";
 
 import { 
   Heart,
@@ -51,7 +52,10 @@ export const PickaxeInventory = () => {
               <div 
                 key={item.instanceId} 
                 onClick={() => handlePickaxeClick(item.instanceId)}
-                className={styles.pickaxeItem}
+                className={clsx(
+                  styles.pickaxeItem,
+                  currentPickaxe?.instanceId === item.instanceId && styles.current
+                )}
               >
 
                 <div className={styles.mainStats}>
@@ -73,9 +77,6 @@ export const PickaxeInventory = () => {
                 </div>
                 <p className={styles.name}>{item.name}</p>
                 <p className={styles.desc}>{item.pickaxe.desc}</p>
-                {currentPickaxe?.instanceId === item.instanceId ? (
-                  <p>Вибрано!</p>
-                ) : null}
 
               </div>
             ))}

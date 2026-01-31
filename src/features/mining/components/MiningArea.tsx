@@ -34,6 +34,7 @@ export const MiningArea = () => {
   const currentPickaxe = useCurrentPickaxe();
   const addItem = useInventoryStore(state => state.addItem)
   const damagePickaxe = usePickaxeStore(state => state.damagePickaxe)
+  const healthPercent = (health / maxHealth) * 100;
 
 
   const handleClick = () => {
@@ -62,6 +63,7 @@ export const MiningArea = () => {
       generateNewOre()
     }
   }
+
 
   const handleAnimate = () => {
     if (isAnimating) return;
@@ -97,14 +99,17 @@ export const MiningArea = () => {
           onClick={handleClick} 
           width={128}
         />
-        <div style={{ marginTop: '10px' }}>
-          <progress 
-            max={maxHealth} 
-            value={health}
-            style={{ width: '200px' }}
+
+        <div className={styles.hpWrapper}>
+          <div
+            className={styles.hpFill}
+            style={{ width: `${healthPercent}%` }}
           />
-          <p>{health.toFixed(1)} / {maxHealth}</p>
+          <span className={styles.hpText}>
+            {health.toFixed(1)} / {maxHealth}
+          </span>
         </div>
+
       </div>
       <DropList/>
     </div>

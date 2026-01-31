@@ -1,6 +1,6 @@
 import { useQuestStore } from "../store/questStore";
 import { Modal } from "@/shared/ui/Modal/Modal";
-import { useUIStore } from "@/shared/store/uiStore";
+import { useUIStore } from "@/shared/store/ModalStore";
 
 import { QuestCard } from "./QuestCard/QuestCard";
 import clsx from "clsx";

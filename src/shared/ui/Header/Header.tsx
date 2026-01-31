@@ -1,6 +1,6 @@
-import { useUIStore } from "@/shared/store/uiStore"
+import { useUIStore } from "@/shared/store/ModalStore"
 import { useSound } from "@/shared/lib/audio/useSound"
-import type { ModalType } from "@/shared/store/uiStore"
+import type { ModalType } from "@/shared/store/ModalStore"
 import { 
   Stone, 
   Pickaxe,

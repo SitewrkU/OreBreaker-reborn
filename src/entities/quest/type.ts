@@ -26,6 +26,10 @@ export interface QuestReward {
   amount: number;
 }
 
+export interface QuestRewardInstance extends QuestReward {
+  instanceId: string;
+}
+
 export interface Quest {
   id: string;
   title: string;
@@ -39,6 +43,7 @@ export interface QuestInstance extends Quest {
   instanceId: string;
   isRewarded: boolean;
   hidden: boolean;
+  rewards: QuestRewardInstance[];
 }
 
 export type QuestTemplate = Omit<Quest, 'status'>;

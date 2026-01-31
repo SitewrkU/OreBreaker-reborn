@@ -31,6 +31,7 @@ export const useQuestStore = create<QuestState>()(
           instanceId: nanoid(),
           status: template.requiresQuests ? 'locked' : 'active',
           objectives: template.objectives.map(obj => ({ ...obj })),
+          rewards: template.rewards.map(reward => ({ ...reward, instanceId: nanoid()})),
           isRewarded: false,
           hidden: false,
         }

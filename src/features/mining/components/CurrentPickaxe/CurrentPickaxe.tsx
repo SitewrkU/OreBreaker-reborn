@@ -57,7 +57,7 @@ export const CurrentPickaxe = () => {
                     [styles.hpMid]: percentNum >= 25 && percentNum < 50, // 25-49
                     [styles.hpMidLow]: percentNum >= 6 && percentNum < 25, //6-24
                     [styles.hpLow]: percentNum >= 2 && percentNum < 6, // 2-5
-                    [styles.hpSupLow]: percentNum < 2, // 0-5
+                    [styles.hpSupLow]: percentNum < 2, // 0-1
                   }
                 )}
               >

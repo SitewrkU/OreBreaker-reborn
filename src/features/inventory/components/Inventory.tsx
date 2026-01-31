@@ -1,6 +1,6 @@
 import { useInventoryStore } from "../store/inventoryStore"
 import { Modal } from "@/shared/ui/Modal/Modal";
-import { useUIStore } from "@/shared/store/uiStore";
+import { useUIStore } from "@/shared/store/ModalStore";
 import clsx from "clsx";
 import { MoonStar } from "lucide-react";
 import styles from './Inventory.module.css'
