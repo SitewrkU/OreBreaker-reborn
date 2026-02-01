@@ -6,7 +6,10 @@ These choices make the project significantly more convenient for scaling and fur
 **This version is currently in Alpha testing, so the current code is intended for GitHub only.**
 ## Alpha 1.4
 Current Pickaxe display
+
 Other Style Changes
+
+BugFixes
 ## Alpha 1.3
 Full ready quest system!
 Remaked textures

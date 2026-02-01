@@ -1,7 +1,9 @@
 import { useCurrentPickaxe } from "@/features/pickaxe/hooks/useCurrentPickaxe";
 import { usePickaxeStore } from "@/features/pickaxe/store/pickaxeStore";
+import { useUIHints } from "@/shared/store/uiHintsStore";
 import { getPercent } from "@/shared/lib/percent";
 
+import { motion } from "framer-motion";
 import { 
   Pickaxe,
   SquareMinus,
@@ -22,6 +24,9 @@ export const CurrentPickaxe = () => {
   if(currentPickaxe){
     percentNum = getPercent(currentPickaxe.pickaxe.durability, currentPickaxe.pickaxe.maxDurability)
   }
+
+  const highlightedElement = useUIHints(state => state.highlightedElement);
+  const isHighlighted = highlightedElement === 'pickaxe-slot';
   
   return (
     <div className={styles.pickaxeInfoContainer}>
@@ -31,7 +36,21 @@ export const CurrentPickaxe = () => {
         {currentPickaxe?.name || 'Кірка не вибрана'}
         </p>
 
-        <div className={styles.pickaxeImage}>
+        <motion.div 
+          className={styles.pickaxeImage}
+          animate={isHighlighted ? {  
+            scale: [1, 1.05, 1],
+            boxShadow: [
+              '0 0 0px rgba(255, 255, 255, 0)',
+              '0 0 10px rgba(255, 255, 255, 0.8)',
+              '0 0 0px rgba(255, 255, 255, 0)',
+            ],
+          } : {
+            scale: 1,
+            boxShadow: 'none'
+          }}
+          transition={{ duration: 0.4, repeat: isHighlighted ? 2 : 0 }}
+        >
           {currentPickaxe ? (
             <>
               <img src={currentPickaxe?.src} alt={currentPickaxe?.name} />
@@ -41,7 +60,7 @@ export const CurrentPickaxe = () => {
             <Pickaxe/>
           )}
           
-        </div>
+        </motion.div>
 
         {currentPickaxe ? (
           <div className={styles.stats}>

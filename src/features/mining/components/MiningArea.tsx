@@ -5,6 +5,7 @@ import { useInventoryStore } from "@/features/inventory/store/inventoryStore";
 import { usePickaxeStore } from "@/features/pickaxe/store/pickaxeStore";
 import { useCurrentPickaxe } from "@/features/pickaxe/hooks/useCurrentPickaxe";
 import { useShallow } from "zustand/shallow";
+import { useUIHints } from "@/shared/store/uiHintsStore";
 
 import { generateOreDrop } from "@/shared/lib/drop";
 import { questTrackers } from "@/features/quests/lib/questProgress";
@@ -34,11 +35,17 @@ export const MiningArea = () => {
   const currentPickaxe = useCurrentPickaxe();
   const addItem = useInventoryStore(state => state.addItem)
   const damagePickaxe = usePickaxeStore(state => state.damagePickaxe)
+
+  const highlightElement = useUIHints(state => state.highlightElement);
+
   const healthPercent = (health / maxHealth) * 100;
 
 
   const handleClick = () => {
-    if(!currentPickaxe) return;
+    if(!currentPickaxe) {
+      highlightElement('pickaxe-slot', 600)
+      return;
+    }
     handleAnimate();
 
     const damage = currentPickaxe.pickaxe.damage;
