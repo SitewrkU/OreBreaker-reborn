@@ -96,12 +96,12 @@ export const MiningArea = () => {
           src={currentOre.src} 
           alt={currentOre.name} 
           animate={{ 
-            rotate: isAnimating ? (rotateLeft ? -15 : 15) : 0 
+            rotate: isAnimating ? (rotateLeft ? [-25, -5, 0] : [25, 5, 0]) : 0,
+            scale: isAnimating ? [1, 0.95, 1] : 1
           }}
           transition={{ 
-            type: "spring", 
-            stiffness: 400, 
-            damping: 17
+            duration: 0.25,
+            ease: [0.6, 0.01, 0.05, 0.9]
           }}
           onClick={handleClick} 
           width={128}
