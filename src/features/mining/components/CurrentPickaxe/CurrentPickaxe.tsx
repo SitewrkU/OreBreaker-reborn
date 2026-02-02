@@ -1,6 +1,7 @@
 import { useCurrentPickaxe } from "@/features/pickaxe/hooks/useCurrentPickaxe";
 import { usePickaxeStore } from "@/features/pickaxe/store/pickaxeStore";
 import { useUIHints } from "@/shared/store/uiHintsStore";
+import { useSound } from "@/shared/lib/audio/useSound";
 import { getPercent } from "@/shared/lib/percent";
 
 import { motion } from "framer-motion";
@@ -19,6 +20,12 @@ import styles from './CurrentPickaxe.module.css'
 export const CurrentPickaxe = () => {
   const currentPickaxe = useCurrentPickaxe();
   const removeCurrPickaxe = usePickaxeStore(state => state.removeCurrentPickaxe)
+  const playUnselect = useSound('unselect')
+
+  const handleRemovePickaxe = () => {
+    removeCurrPickaxe()
+    playUnselect()
+  }
 
   let percentNum = 100;
   if(currentPickaxe){
@@ -54,7 +61,7 @@ export const CurrentPickaxe = () => {
           {currentPickaxe ? (
             <>
               <img src={currentPickaxe?.src} alt={currentPickaxe?.name} />
-              <SquareMinus onClick={removeCurrPickaxe} className={styles.removePickaxe}/>
+              <SquareMinus onClick={handleRemovePickaxe} className={styles.removePickaxe}/>
             </>
           ) : (
             <Pickaxe/>
