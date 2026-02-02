@@ -8,12 +8,14 @@ import { soundManager } from "@/shared/lib/audio/soundManager";
 
 interface QuestState {
   quests: QuestInstance[];
+  newCompletedCount: number;
   
   initializeQuests: () => void;
   updateObjective: (questId: string, objectiveId: string, progress: number) => void;
   checkUnlocks: () => void;
   claimReward: (questId: string) => void;
   setHidden: (questId: string) => void;
+  clearNewCompletedCount: () => void;
   getActiveQuests: () => QuestInstance[];
   getCompletedQuests: () => QuestInstance[];
 }
@@ -21,6 +23,7 @@ interface QuestState {
 export const useQuestStore = create<QuestState>()(
   immer((set, get) => ({
     quests: [],
+    newCompletedCount: 0,
 
 
     initializeQuests: () => set((state) => {
@@ -55,6 +58,7 @@ export const useQuestStore = create<QuestState>()(
       )
       if(allCompleted && quest.status === 'active'){
         quest.status = 'completed'
+        state.newCompletedCount += 1
         soundManager.play('quest-complete')
       }
     }),
@@ -93,6 +97,10 @@ export const useQuestStore = create<QuestState>()(
       if(!quest.isRewarded) return
 
       quest.hidden = true
+    }),
+
+    clearNewCompletedCount: () => set((state) => {
+      state.newCompletedCount = 0
     }),
 
     getActiveQuests: () => {
