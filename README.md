@@ -7,6 +7,10 @@ These choices make the project significantly more convenient for scaling and fur
 ## Alpha 1.4
 Current Pickaxe display
 
+UI Hints
+
+New Sounds
+
 Other Style Changes
 
 BugFixes

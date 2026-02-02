@@ -6,6 +6,7 @@ import { usePickaxeStore } from "@/features/pickaxe/store/pickaxeStore";
 import { useCurrentPickaxe } from "@/features/pickaxe/hooks/useCurrentPickaxe";
 import { useShallow } from "zustand/shallow";
 import { useUIHints } from "@/shared/store/uiHintsStore";
+import { useMiningSound } from "../hooks/useMiningSound";
 
 import { generateOreDrop } from "@/shared/lib/drop";
 import { questTrackers } from "@/features/quests/lib/questProgress";
@@ -37,6 +38,7 @@ export const MiningArea = () => {
   const damagePickaxe = usePickaxeStore(state => state.damagePickaxe)
 
   const highlightElement = useUIHints(state => state.highlightElement);
+  const playRandomMiningSound = useMiningSound();
 
   const healthPercent = (health / maxHealth) * 100;
 
@@ -46,7 +48,8 @@ export const MiningArea = () => {
       highlightElement('pickaxe-slot', 600)
       return;
     }
-    handleAnimate();
+    handleAnimate()
+    playRandomMiningSound()
 
     const damage = currentPickaxe.pickaxe.damage;
     const { destroyed } = damageOre(damage)
@@ -93,6 +96,7 @@ export const MiningArea = () => {
       <div className={styles.oreArea}>
         <h2>{currentOre.name}</h2>
         <motion.img 
+          className={styles.oreImage}
           src={currentOre.src} 
           alt={currentOre.name} 
           animate={{ 
@@ -100,11 +104,10 @@ export const MiningArea = () => {
             scale: isAnimating ? [1, 0.95, 1] : 1
           }}
           transition={{ 
-            duration: 0.25,
+            duration: 0.35,
             ease: [0.6, 0.01, 0.05, 0.9]
           }}
           onClick={handleClick} 
-          width={128}
         />
 
         <div className={styles.hpWrapper}>

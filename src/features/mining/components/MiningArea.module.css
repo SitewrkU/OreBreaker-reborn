@@ -6,6 +6,15 @@
 
 .oreArea{
   width: 250px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.oreImage{
+  cursor: pointer;
+  width: 128px;
 }
 
 .hpWrapper {

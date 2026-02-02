@@ -4,6 +4,7 @@ import { nanoid } from "nanoid";
 import type { QuestInstance } from "@/entities/quest/type";
 import { quests } from "@/data/quests";
 import { giveQuestRewards } from "../lib/questReward";
+import { soundManager } from "@/shared/lib/audio/soundManager";
 
 interface QuestState {
   quests: QuestInstance[];
@@ -54,6 +55,7 @@ export const useQuestStore = create<QuestState>()(
       )
       if(allCompleted && quest.status === 'active'){
         quest.status = 'completed'
+        soundManager.play('quest-complete')
       }
     }),
 
